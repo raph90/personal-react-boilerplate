@@ -1,32 +1,35 @@
 module.exports = {
   env: {
     node: true,
-    es2021: true,
+    es2021: true
   },
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/jsx-runtime",
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/jsx-runtime',
+    'prettier'
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 13,
-    sourceType: "module",
+    sourceType: 'module'
   },
-  plugins: ["react", "@typescript-eslint", "react-hooks"],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      { allowExpressions: true },
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
+      { allowExpressions: true }
     ],
-    "max-len": ["warn", { code: 80 }],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": "off",
+    'max-len': ['warn', { code: 80 }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 'off',
+    'prettier/prettier': 2,
+    'no-console': 1
   },
-  settings: { react: { version: "detect" } },
+  settings: { react: { version: 'detect' } }
 };
