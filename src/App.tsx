@@ -1,11 +1,14 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './app.less';
-import DatePicker from 'antd/es/date-picker';
+import { Button } from 'antd';
+import Hello from './components/Hello';
+
 const App: FC = () => {
   return (
     <>
-      <DatePicker />
+      <Button type="primary">Primary Button</Button>
       <h3 className={styles.header}> Welcome to React Boilerplate </h3>
+      <Hello />
     </>
   );
 };
