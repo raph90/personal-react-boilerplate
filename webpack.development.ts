@@ -1,12 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import lessVarsToJs from 'less-vars-to-js';
-import fs from 'fs';
-
-const themeVariables = lessVarsToJs(
-  fs.readFileSync(path.join(__dirname, './src/styles/theme.less'), 'utf8')
-);
 
 module.exports = {
   mode: 'development',
