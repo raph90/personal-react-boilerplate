@@ -1,6 +1,12 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import lessVarsToJs from 'less-vars-to-js';
+import fs from 'fs';
+
+const themeVariables = lessVarsToJs(
+  fs.readFileSync(path.join(__dirname, './src/styles/theme.less'), 'utf8')
+);
 
 module.exports = {
   mode: 'development',
@@ -36,8 +42,9 @@ module.exports = {
             options: {
               sourceMap: true,
               modules: {
+                auto: /\.module\.\w+$/i,
                 mode: 'local',
-                localIdentName: '[name]__[local]--[hash:base64:5]'
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
               }
             }
           },
@@ -45,17 +52,15 @@ module.exports = {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                javascriptEnabled: true,
-                lessOptions: {
-                  modifyVars: {
-                    'primary-color': '#1DA57A',
-                    'link-color': '#1DA57A'
-                  }
-                }
+                javascriptEnabled: true
               }
             }
           }
         ]
+      },
+      {
+        use: ['style-loader', 'css-loader'],
+        test: /\.css$/
       }
     ]
   },

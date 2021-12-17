@@ -1,4 +1,4 @@
 import { render } from 'react-dom';
 import App from './App';
-import 'antd/dist/antd.less';
+import './styles/main.less';
 render(<App />, document.getElementById('root'));
