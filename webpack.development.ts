@@ -21,11 +21,6 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader',
-      },
-      {
         test: /\.less$/i,
         use: [
           {
@@ -37,7 +32,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 auto: /\.module\.\w+$/i,
-                mode: 'local',
+                // mode: 'local',
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
               },
             },
