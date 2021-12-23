@@ -5,9 +5,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, 'public', 'index.html')
+    template: path.resolve(__dirname, 'public', 'index.html'),
   }),
-  new CleanWebpackPlugin()
+  new CleanWebpackPlugin(),
 ];
 
 module.exports = {
@@ -15,10 +15,10 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   optimization: {
     usedExports: true,
@@ -30,23 +30,23 @@ module.exports = {
           filename: 'vendors.[contenthash].js',
           priority: 1,
           maxInitialRequests: 2, // create only one vendor file
-          minChunks: 1
-        }
-      }
-    }
+          minChunks: 1,
+        },
+      },
+    },
   },
   module: {
     rules: [
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.less$/i,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -54,21 +54,21 @@ module.exports = {
               sourceMap: false,
               modules: {
                 mode: 'local',
-                localIdentName: '[name]__[local]--[hash:base64:5]'
-              }
-            }
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
           },
           {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
-      }
-    ]
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
-  plugins: [...plugins, new MiniCssExtractPlugin()]
+  plugins: [...plugins, new MiniCssExtractPlugin()],
 };

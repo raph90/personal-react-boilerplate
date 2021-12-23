@@ -7,10 +7,10 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   devtool: 'inline-source-map',
   module: {
@@ -18,18 +18,18 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         enforce: 'pre',
         test: /\.js$/,
-        loader: 'source-map-loader'
+        loader: 'source-map-loader',
       },
       {
         test: /\.less$/i,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
@@ -38,30 +38,30 @@ module.exports = {
               modules: {
                 auto: /\.module\.\w+$/i,
                 mode: 'local',
-                localIdentName: '[path][name]__[local]--[hash:base64:5]'
-              }
-            }
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
           },
           {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
       },
       {
         use: ['style-loader', 'css-loader'],
-        test: /\.css$/
-      }
-    ]
+        test: /\.css$/,
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public', 'index.html')
+      template: path.resolve(__dirname, 'public', 'index.html'),
     }),
-    new CleanWebpackPlugin()
-  ]
+    new CleanWebpackPlugin(),
+  ],
 };
