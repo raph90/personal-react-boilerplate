@@ -5,8 +5,8 @@ import Hello from './components/Hello';
 const App: FC = () => {
   return (
     <>
-      <Button type="primary">Primary Button</Button>
-      <h3> Welcome to React Boilerplate </h3>
+      <Button className='color-white'>hello there</Button>
+      <h3 className='text-slate-50'> Welcome to React Boilerplate</h3>
       <Hello />
     </>
   );
